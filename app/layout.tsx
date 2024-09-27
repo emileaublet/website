@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx("", space_grotesk.className)}>
       <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto text-zinc-950 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-50">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 pb-10">
           {children}
           <Analytics />
           <SpeedInsights />

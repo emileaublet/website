@@ -28,20 +28,14 @@ export const Emiles = () => {
   };
   return (
     <div
-      className="w-40 mb-6 relative group rounded-full overflow-hidden"
+      className="w-28 h-28 md:w-40 md:h-40 mb-6 relative group rounded-full overflow-hidden"
       onMouseOut={handleNextEmile}
     >
-      <Image
-        src={all_the_emiles[emile]}
-        alt={"Émile Aublet"}
-        width={160}
-        height={160}
-      />
+      <Image src={all_the_emiles[emile]} alt={"Émile Aublet"} fill />
       <Image
         src={emile_aublet}
         alt={"Émile Aublet"}
-        width={160}
-        height={160}
+        fill
         className="absolute top-0 left-0 group-hover:opacity-0 transition-opacity"
       />
     </div>

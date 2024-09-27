@@ -15,14 +15,14 @@ export default function Page() {
   return (
     <section className="mt-20">
       <Emiles />
-      <h1 className="mb-6 text-3xl font-bold">
+      <h1 className="mb-6 text-2xl md:text-3xl font-bold">
         Émile Aublet
         <span className="sr-only">{", "}</span>
         <span className="block font-normal opacity-80">
           Product Designer | UX Engineer
         </span>
       </h1>
-      <div className="mt-2 flex flex-row gap-2">
+      <div className="mt-2 flex flex-row gap-2 flex-wrap">
         <Link
           target="_blank"
           className={linkClasses}
@@ -48,7 +48,7 @@ export default function Page() {
           emileaublet@gmail.com
         </Link>
       </div>
-      <p className="text-2xl font-normal leading-normal dark:text-zinc-400 mt-12">
+      <p className="text-lg md:text-2xl font-normal leading-normal dark:text-zinc-400 mt-12">
         I’m a design leader passionate about building seamless, user-centered
         experiences. My background spans design systems, product design, and
         front-end development, allowing me to shape products at companies like{" "}
@@ -80,7 +80,7 @@ const Token = ({
   small?: boolean;
 }>) => {
   return (
-    <span className="inline-flex items-baseline">
+    <span className="inline-flex items-baseline flex-wrap">
       <Icon
         className={[
           "self-center",
