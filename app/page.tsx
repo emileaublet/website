@@ -1,7 +1,14 @@
-export default function Home() {
+import { Projects } from 'app/components/projects'
+
+export default function Page() {
   return (
-    <div>
-     Hello
-    </div>
-  );
+    <section>
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        My Portfolio
+      </h1>
+      <div className="my-8">
+        <Projects />
+      </div>
+    </section>
+  )
 }
