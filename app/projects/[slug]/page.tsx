@@ -49,7 +49,7 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Blog({ params }) {
+export default function Project({ params }) {
   let post = getProjects().find((post) => post.slug === params.slug)
 
   if (!post) {
