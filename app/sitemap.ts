@@ -1,6 +1,6 @@
 import { getProjects } from 'app/projects/utils'
 
-export const baseUrl = 'https://super-duper-invention-jwp57q7vx6hpvx6-3000.app.github.dev' 
+export const baseUrl = 'https://website-git-main-emileaublet1s-projects.vercel.app' 
 
 export default async function sitemap() {
   let projects = getProjects().map((post) => ({
