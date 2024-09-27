@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import { formatDate, getProjects } from 'app/projects/utils'
+import Link from "next/link";
+import { formatDate, getProjects } from "app/projects/utils";
 
 export function Projects() {
-  let allBlogs = getProjects()
+  let allBlogs = getProjects();
 
   return (
     <div>
@@ -11,9 +11,9 @@ export function Projects() {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
           ) {
-            return -1
+            return -1;
           }
-          return 1
+          return 1;
         })
         .map((post) => (
           <Link
@@ -32,5 +32,5 @@ export function Projects() {
           </Link>
         ))}
     </div>
-  )
+  );
 }
