@@ -53,7 +53,15 @@ export default function Page() {
           target="_blank"
         >
           <FaDownload className="w-4 h-4 dark:text-white text-zinc-900" />
-          Resume (PDF)
+          Resume (English)
+        </Link>
+        <Link
+          className={linkClasses}
+          href="/EmileAublet_2024_fr.pdf"
+          target="_blank"
+        >
+          <FaDownload className="w-4 h-4 dark:text-white text-zinc-900" />
+          CV (French)
         </Link>
       </div>
       <p className="text-lg md:text-2xl font-normal leading-normal dark:text-zinc-400 mt-12">
