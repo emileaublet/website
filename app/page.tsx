@@ -6,7 +6,7 @@ import {
   ShopifyLogo,
 } from "./components/logos";
 import { Emiles } from "./components/emiles";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Page() {
@@ -19,7 +19,7 @@ export default function Page() {
         Émile Aublet
         <span className="sr-only">{", "}</span>
         <span className="block font-normal opacity-80">
-          Product Designer | UX Engineer
+          Senior Product Designer | Design Ops Leader
         </span>
       </h1>
       <div className="mt-2 flex flex-row gap-2 flex-wrap">
@@ -47,6 +47,14 @@ export default function Page() {
           <FaEnvelope className="w-4 h-4 dark:text-white text-zinc-900" />
           emileaublet@gmail.com
         </Link>
+        <Link
+          className={linkClasses}
+          href="/EmileAublet_2024_en.pdf"
+          target="_blank"
+        >
+          <FaDownload className="w-4 h-4 dark:text-white text-zinc-900" />
+          Resume (PDF)
+        </Link>
       </div>
       <p className="text-lg md:text-2xl font-normal leading-normal dark:text-zinc-400 mt-12">
         I’m a design leader passionate about building seamless, user-centered
@@ -65,7 +73,6 @@ export default function Page() {
           Montreal, Canada
         </Token>
         .<br />
-        Working remotely, anywhere.
       </small>
     </section>
   );

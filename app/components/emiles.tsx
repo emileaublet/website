@@ -10,6 +10,10 @@ import feltmile_aublet from "../static/feltmile_aublet.png";
 import figurimile_aublet from "../static/figurimile_aublet.png";
 import muppetmile_aublet from "../static/muppetmile_aublet.png";
 
+const randomIndex = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export const Emiles = () => {
   const all_the_emiles: StaticImageData[] = [
     arcamile_aublet,
@@ -19,11 +23,11 @@ export const Emiles = () => {
     muppetmile_aublet,
   ];
 
-  const [emile, setEmile] = useState(0);
+  const [emile, setEmile] = useState(randomIndex(0, all_the_emiles.length - 1));
 
   const handleNextEmile = () => {
     setTimeout(() => {
-      setEmile((i) => (i === all_the_emiles.length - 1 ? 0 : i + 1));
+      setEmile(randomIndex(0, all_the_emiles.length - 1));
     }, 200);
   };
   return (
