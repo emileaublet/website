@@ -1,15 +1,15 @@
-import { getProjects } from 'app/projects/utils'
+import { getProjects } from "app/utils";
 
-export const baseUrl = 'https://aublet.ca' 
+export const baseUrl = "https://aublet.ca";
 
 export default async function sitemap() {
   let projects = getProjects().map((post) => ({
-    url: `${baseUrl}/projects/${post.slug}`,
-  }))
+    url: `${baseUrl}/${post.slug}`,
+  }));
 
-  let routes = ['', '/projects'].map((route) => ({
+  let routes = [""].map((route) => ({
     url: `${baseUrl}${route}`,
-  }))
+  }));
 
-  return [...routes, ...projects]
+  return [...routes, ...projects];
 }

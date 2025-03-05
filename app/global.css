@@ -1,5 +1,4 @@
-@import 'tailwindcss';
-
+@import "tailwindcss";
 
 ::selection {
   background-color: #f47067;
@@ -31,7 +30,15 @@
 }
 
 html {
-  min-width: 360px;
+  font-size: 20px;
+}
+
+.subtle-border-b {
+  @apply border-b dark:border-b-zinc-50/5 border-b-zinc-950/5;
+}
+
+.button {
+  @apply flex items-center gap-3 bg-zinc-100 dark:bg-zinc-900/90 backdrop-blur-3xl py-1.5 px-3 rounded-lg hover:dark:bg-zinc-800 hover:bg-zinc-200 hover:cursor-pointer w-max;
 }
 
 .prose .anchor {
@@ -54,7 +61,7 @@ html {
 
 .prose .anchor:after {
   @apply text-zinc-300 dark:text-zinc-700;
-  content: '#';
+  content: "#";
 }
 
 .prose *:hover > .anchor {
@@ -85,15 +92,28 @@ html {
 }
 
 .prose p {
-  @apply my-4 text-zinc-800 dark:text-zinc-200;
+  @apply my-4 text-zinc-800 dark:text-zinc-200 text-lg max-w-3xl leading-relaxed;
+}
+
+.prose p + figure {
+  @apply mt-24;
+}
+
+.prose p + .columns {
+  @apply mt-24;
+}
+
+.columns + p {
+  @apply mt-24;
 }
 
 .prose h1 {
   @apply text-4xl font-medium tracking-tight mt-6 mb-2;
 }
 
-.prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+.prose h2,
+h2 {
+  @apply text-2xl font-medium tracking-tight mt-20 mb-10;
 }
 
 .prose h3 {
@@ -116,6 +136,10 @@ html {
   @apply list-decimal pl-6;
 }
 
+.prose .lead {
+  @apply text-xl md:text-2xl;
+}
+
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
@@ -132,8 +156,8 @@ pre {
 }
 
 /* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -148,4 +172,8 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+a:not([href="/"]) {
+  @apply underline-offset-4 underline decoration-1 decoration-current/20 hover:decoration-current/50;
 }
