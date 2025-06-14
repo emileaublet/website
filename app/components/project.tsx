@@ -15,7 +15,7 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
           alt={metadata.title}
           width={540}
           height={300}
-          className="rounded-sm w-full"
+          className="rounded-lg w-full"
         />
         <p className="text-2xl font-semibold mt-6">{metadata.title}</p>
       </Link>

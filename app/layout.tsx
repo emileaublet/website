@@ -1,5 +1,3 @@
-import { Space_Grotesk } from "next/font/google";
-
 import "./global.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
@@ -9,9 +7,10 @@ import { Nav } from "./components/nav";
 import { Footer } from "./components/footer";
 import { title } from "./const";
 
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
+import localFont from "next/font/local";
+
+const space_grotesk = localFont({
+  src: "./SpaceGrotesk-VariableFont_wght.ttf",
 });
 
 export const metadata: Metadata = {

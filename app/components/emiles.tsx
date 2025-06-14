@@ -2,12 +2,12 @@
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
-import emile_aublet from "../static/emile_aublet.png";
-import arcamile_aublet from "../static/arcamile_aublet.png";
-import claymile_aublet from "../static/claymile_aublet.png";
-import feltmile_aublet from "../static/feltmile_aublet.png";
-import figurimile_aublet from "../static/figurimile_aublet.png";
-import muppetmile_aublet from "../static/muppetmile_aublet.png";
+import emile_aublet from "../static/emile_aublet.webp";
+import arcamile_aublet from "../static/arcamile_aublet.webp";
+import claymile_aublet from "../static/claymile_aublet.webp";
+import feltmile_aublet from "../static/feltmile_aublet.webp";
+import figurimile_aublet from "../static/figurimile_aublet.webp";
+import muppetmile_aublet from "../static/muppetmile_aublet.webp";
 import classNames from "classnames";
 
 export const Emiles = ({ small }: { small?: boolean }) => {
