@@ -23,7 +23,7 @@ export default async function Image() {
   );
 
   const emileData = await readFile(
-    join(process.cwd(), "/app/static/emile_aublet.webp")
+    join(process.cwd(), "/app/static/emile_aublet.png")
   );
   const emileSrc = Uint8Array.from(emileData).buffer;
 
