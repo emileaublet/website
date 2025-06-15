@@ -17,7 +17,11 @@ export default function Page() {
         <h2>Projects</h2>
         <Columns>
           {projects.map((project) => (
-            <Project metadata={project.metadata} slug={project.slug} />
+            <Project
+              key={project.slug}
+              metadata={project.metadata}
+              slug={project.slug}
+            />
           ))}
         </Columns>
       </section>

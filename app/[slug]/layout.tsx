@@ -2,15 +2,20 @@ import { Columns } from "app/components/columns";
 import { Project } from "app/components/project";
 import { getAdjacentProjects } from "app/utils";
 
-export default function MdxLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: {
-    slug: string;
-  };
-}) {
+export default async function MdxLayout(
+  props: {
+    children: React.ReactNode;
+    params: Promise<{
+      slug: string;
+    }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   const { slug } = params;
   const { previous, next } = getAdjacentProjects(slug);
 

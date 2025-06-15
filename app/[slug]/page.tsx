@@ -12,7 +12,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   let post = getProjects().find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -29,6 +30,13 @@ export function generateMetadata({ params }) {
       type: "article",
       url: `${baseUrl}/${post.slug}`,
     },
+    images: [
+      {
+        url: `${baseUrl}/${post.metadata.image}`,
+        width: 800,
+        height: 600,
+      },
+    ],
     twitter: {
       card: "summary_large_image",
       title,
@@ -37,7 +45,8 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Project({ params }) {
+export default async function Project(props) {
+  const params = await props.params;
   let post = getProjects().find((post) => post.slug === params.slug);
 
   if (!post) {

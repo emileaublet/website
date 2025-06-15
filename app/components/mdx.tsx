@@ -49,7 +49,7 @@ function RoundedVideo(props) {
   return (
     <figure className="w-full">
       <video
-        className="rounded-lg border border-neutral-200 w-full dark:border-neutral-700"
+        className="rounded-lg border border-neutral-200 w-full dark:border-transparent"
         controls
         autoPlay
         muted
@@ -71,7 +71,7 @@ function RoundedImage(props) {
     <figure className="w-full">
       <Image
         alt={props.alt}
-        className="rounded-lg w-full border border-neutral-200 dark:border-neutral-700"
+        className="rounded-lg w-full border border-neutral-200 dark:border-transparent"
         {...props}
       />
 
