@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-::selection {
-  background-color: #f47067;
-  color: #fefefe;
-}
-
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
@@ -176,4 +171,8 @@ table {
 
 a:not([href="/"]) {
   @apply underline-offset-4 underline decoration-1 decoration-current/20 hover:decoration-current/50;
+}
+
+::selection {
+  @apply bg-emerald-500 dark:bg-emerald-800;
 }
