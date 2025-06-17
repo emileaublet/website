@@ -55,6 +55,12 @@ export default async function Project(props) {
 
   return (
     <section>
+      {post.metadata.isDraft && (
+        <div className=" bg-orange-500/65 backdrop-blur-3xl w-full p-2 mb-8 rounded-lg text-sm font-medium">
+          👋&ensp;Hello! I am still working on this project, some images/content
+          may be missing.
+        </div>
+      )}
       <script
         type="application/ld+json"
         suppressHydrationWarning

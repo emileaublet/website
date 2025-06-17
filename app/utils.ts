@@ -9,6 +9,7 @@ export type Metadata = {
   employer: string;
   areas: string;
   role: string;
+  isDraft?: boolean;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -23,7 +24,7 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(": ");
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value;
+    (metadata as Record<string, unknown>)[key.trim()] = value;
   });
 
   return { metadata: metadata as Metadata, content };

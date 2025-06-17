@@ -113,7 +113,7 @@ html {
 
 .prose h2,
 h2 {
-  @apply text-2xl font-medium tracking-tight mt-20 mb-10;
+  @apply text-2xl font-medium tracking-tight mt-12 mb-4;
 }
 
 .prose h3 {

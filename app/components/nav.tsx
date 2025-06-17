@@ -5,12 +5,13 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 export const Nav = () => {
   return (
     <nav className="flex items-center justify-between py-4">
-      <div className="flex items-center gap-4">
+      <Link
+        className="text-xl font-medium tracking-tight flex items-center gap-4"
+        href="/"
+      >
         <Emiles small />
-        <Link className="text-xl font-medium tracking-tight" href="/">
-          Émile Aublet
-        </Link>
-      </div>
+        <span className="max-md:hidden">Émile Aublet</span>
+      </Link>
       <div className="flex gap-4">
         <Link href="https://github.com/emileaublet">
           <span className="sr-only">GitHub</span>

@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="grid auto-rows-min md:grid-cols-3 gap-4">
         <div>
           <h2 className="text-xl mb-4 mt-8 font-medium">Experiences</h2>
-          <ul className="text-lg">
+          <ul className="text-base">
             <li>FLO EV Charging</li>
             <li>Shopify</li>
             <li>National Bank of Canada</li>
@@ -17,7 +17,7 @@ export const Footer = () => {
         </div>
         <div>
           <h2 className="text-xl mb-4 mt-8 font-medium">Services</h2>
-          <ul className="text-lg">
+          <ul className="text-base">
             <li>Design systems</li>
             <li>Prototyping</li>
             <li>UI/UX design</li>
@@ -27,7 +27,7 @@ export const Footer = () => {
         </div>
         <div>
           <h2 className="text-xl mb-4 mt-8 font-medium">Contact</h2>
-          <ul className="text-lg">
+          <ul className="text-base">
             <li>
               <Link
                 target="_blank"
@@ -49,7 +49,7 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <p className="my-12">
+      <p className="my-12 text-xs">
         © {new Date().getFullYear()} Émile Aublet. All rights reserved.
       </p>
     </footer>
