@@ -1,14 +1,16 @@
-import { Space_Grotesk } from "next/font/google";
-
 import "./global.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { baseUrl } from "./sitemap";
+import { Nav } from "./components/nav";
+import { Footer } from "./components/footer";
+import { title } from "./const";
 
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
+import localFont from "next/font/local";
+
+const space_grotesk = localFont({
+  src: "./SpaceGrotesk-VariableFont_wght.ttf",
 });
 
 export const metadata: Metadata = {
@@ -17,13 +19,13 @@ export const metadata: Metadata = {
     default: "Émile Aublet",
     template: "%s | Émile Aublet",
   },
-  description: "Product Designer | UX Engineer",
+  description: title,
   openGraph: {
-    title: "Émile Aublet",
-    description: "Product Designer | UX Engineer",
+    title: `Émile Aublet`,
+    description: title,
     url: baseUrl,
-    siteName: "Émile Aublet",
-    locale: "en_US",
+    siteName: "Portfolio of Émile Aublet",
+    locale: "en_CA",
     type: "website",
   },
   robots: {
@@ -48,9 +50,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cx("", space_grotesk.className)}>
-      <body className="antialiased max-w-4xl mx-4 mt-8 lg:mx-auto text-zinc-950 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-50">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 pb-10">
+      <body className="antialiased max-w-6xl mx-auto px-4 lg:px-8 text-zinc-950 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-50">
+        <main className="flex-auto min-w-0 flex flex-col pb-10">
+          <Nav />
           {children}
+          <Footer />
           <Analytics />
           <SpeedInsights />
         </main>

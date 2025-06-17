@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote-client/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
+import { Columns } from "./columns";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -44,8 +45,43 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
+function RoundedVideo(props) {
+  return (
+    <figure className="w-full">
+      <video
+        className="rounded-lg border border-neutral-200 w-full dark:border-transparent"
+        controls
+        autoPlay
+        muted
+        loop
+        src={props.src}
+        {...props}
+      />
+      {props.alt && (
+        <figcaption className="text-current/75 text-sm mt-4 mb-2 text-center">
+          {props.alt}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <figure className="w-full">
+      <Image
+        alt={props.alt}
+        className="rounded-lg w-full border border-neutral-200 dark:border-transparent"
+        {...props}
+      />
+
+      {props.alt && (
+        <figcaption className="text-current/75 text-sm mt-4 mb-2 text-center">
+          {props.alt}
+        </figcaption>
+      )}
+    </figure>
+  );
 }
 
 function Code({ children, ...props }) {
@@ -93,17 +129,23 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
+  Img: RoundedImage,
+  Video: RoundedVideo,
   a: CustomLink,
   code: Code,
   Table,
+  lead: (props) => <p className="lead">{props.children}</p>,
+  Columns,
 };
 
 export function CustomMDX(props) {
   return (
     <MDXRemote
       {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      components={{
+        ...components,
+        ...(props.components || {}),
+      }}
     />
   );
 }

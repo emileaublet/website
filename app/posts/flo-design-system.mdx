@@ -1,0 +1,57 @@
+---
+title: FLO EV Charging's Design System
+summary: Establishing FLO's first design system to support rapid development while ensuring long-term scalability and flexibility.
+role: Lead Design Ops
+areas: Design System, UI/UX, Front-End Dev
+employer: FLO EV Charging
+image: /flo-ds-main.webp
+---
+
+<Img
+  src={"/flo-ds-main.webp"}
+  width={1280}
+  height={660}
+  alt="FLO's Design System"
+/>
+
+## Challenge
+
+When I joined FLO, there was no existing design system, yet multiple projects were already underway to build internal and external portals for managing the EV charging network. We needed to move fast while ensuring long-term flexibility.
+
+To balance speed and scalability, we built a low-styled component library using native web behaviors where possible. This allowed us to establish a functional UI quickly while keeping future theming options open.
+
+<Columns>
+  <Img src={"/flo-ds-components-1.webp"} width={540} height={660} alt="" />
+  <Img src={"/flo-ds-components-2.webp"} width={540} height={660} alt="" />
+</Columns>
+
+<Img src={"/flo-ds-components-3.webp"} width={1280} height={660} alt="" />
+
+## Approach
+
+We built core components with React and TailwindCSS, keeping them lightweight and easily customizable. To ensure consistency and fast adoption, we developed a Next.js + Storybook documentation platform that gave teams quick access to standardized components.
+
+Leveraging native behaviors minimized complexity, making the system intuitive. With faster iteration cycles, developers needed fewer design specs, freeing the UX team to focus on strategic work rather than repetitive UI specs.
+
+By keeping implementation practical, the design system became an enabler, not a bottleneck. Developers quickly adopted it, accelerating FLO’s ability to build and iterate efficiently.
+
+<Columns>
+  <Img src={"/flo-ds-doc.webp"} width={660} height={660} alt="" />
+  <Img src={"/flo-ds-fig.webp"} width={660} height={660} alt="" />
+</Columns>
+
+As our cross-functional team embraced the initiative, we expanded the system's scope, building comprehensive documentation and fostering a culture of shared ownership. Through inclusive training sessions and open contributions, we carefully evolved our design ecosystem, ensuring that both designers and developers felt empowered to shape our technical and visual standards.
+
+## Results
+
+The design system transformed FLO’s product development. Development cycles became faster, reducing the need to reinvent UI patterns. Developers gained autonomy, while UX focused on higher-value challenges. A unified design language ensured consistency across both internal tools and customer-facing platforms.
+
+<Img src={"/flo-ds-doc-home.webp"} width={1280} height={660} alt="" />
+
+## Lessons
+
+Building a design system while projects were already moving required a pragmatic approach. Instead of aiming for perfection, we focused on delivering just enough structure to accelerate development without adding friction. Early wins drove adoption, and by keeping the system lightweight, we ensured it remained an enabler rather than a constraint. More than consistency, the real impact was in empowering teams to move faster with confidence.
+
+## Shoutout
+
+This work wouldn’t have been possible without [Katherine Paradis-Lord](https://www.linkedin.com/in/katherinepl/). Her contributions were foundational — especially in how she structured and documented components. Her clarity, rigor, and design intuition brought the system to a whole new level of quality and cohesion. Merci Kath!
