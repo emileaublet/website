@@ -1,0 +1,13 @@
+---
+title: Building a drawing machine & generative art
+summary: Personal project exploring the intersection of art and technology through a custom-built drawing machine that creates unique generative art pieces.
+areas: Design, Code, 3D modeling
+tagline: Building a drawing machine to create generative art
+employer: Personal Project
+employerLogo: /emile_aublet.png
+image: /flo-generative-art-tile.png
+color: "#F6FCFF"
+accentColor: "#113B64"
+---
+
+<Img src={"/long.webp"} width={1280} height={660} alt="" />

@@ -7,9 +7,14 @@ export type Metadata = {
   summary: string;
   image: string;
   employer: string;
+  employerLogo?: string;
   areas: string;
   role: string;
   isDraft?: boolean;
+  color?: string;
+  accentColor?: string;
+  tagline?: string;
+  type?: string;
 };
 
 function parseFrontmatter(fileContent: string) {

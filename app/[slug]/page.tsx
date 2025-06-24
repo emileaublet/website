@@ -3,6 +3,8 @@ import { CustomMDX } from "app/components/mdx";
 import { getProjects } from "app/utils";
 import { baseUrl } from "app/sitemap";
 import { NameVal } from "app/components/nameval";
+import Image from "next/image";
+import { Transition } from "@headlessui/react";
 
 export async function generateStaticParams() {
   let posts = getProjects();
@@ -85,20 +87,46 @@ export default async function Project(props) {
         <h1 className="title font-semibold text-4xl md:text-6xl tracking-tighter max-w-4xl">
           {post.metadata.title}
         </h1>
-        <div className="prose dark:prose-invert max-w-4xl">
+        <div className="prose dark:prose-invert max-w-4xl flex flex-col-reverse md:flex-col gap-0">
           <CustomMDX
             source={`<p className="lead">${post.metadata.summary}</p>`}
           />
-        </div>
-        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4 mt-6">
-          <NameVal name="Employer" val={post.metadata.employer} />
-          <NameVal name="Role" val={post.metadata.role} />
-          <NameVal name="Skills" val={post.metadata.areas} />
+          {[
+            post.metadata.employer,
+            post.metadata.role,
+            post.metadata.areas,
+          ].some((v) => v) && (
+            <div className="grid gap-1 md:gap-4 md:grid-cols-3 lg:grid-cols-4 mt-6">
+              {post.metadata.employer && (
+                <NameVal name="Employer" val={post.metadata.employer} />
+              )}
+              {post.metadata.role && (
+                <NameVal name="Role" val={post.metadata.role} />
+              )}
+              {post.metadata.areas && (
+                <NameVal name="Skills" val={post.metadata.areas} />
+              )}
+            </div>
+          )}
         </div>
       </header>
       <article className="prose dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
+      {post.metadata.image && (
+        <Transition appear show>
+          <div
+            className="absolute w-full h-[900px] -z-10 top-0 left-0 max-w-full data-closed:opacity-0 mix-blend-color transition-opacity duration-[2s] ease-in-out opacity-100"
+            style={{
+              backgroundImage: `url(${post.metadata.image})`,
+              backgroundSize: "120%",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              filter: "blur(200px)",
+            }}
+          />
+        </Transition>
+      )}
     </section>
   );
 }

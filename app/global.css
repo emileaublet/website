@@ -51,7 +51,7 @@ html {
 }
 
 .prose a {
-  @apply underline transition-all decoration-zinc-400 dark:decoration-zinc-600 underline-offset-2 decoration-[0.1em];
+  @apply transition-all decoration-zinc-400 dark:decoration-zinc-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
@@ -169,10 +169,10 @@ table {
   text-wrap: balance;
 }
 
-a:not([href="/"]) {
-  @apply underline-offset-4 underline decoration-1 decoration-current/20 hover:decoration-current/50;
-}
-
 ::selection {
   @apply bg-emerald-500 dark:bg-emerald-800;
+}
+
+.project-bg {
+  @apply blur-3xl scale-125 origin-center;
 }
