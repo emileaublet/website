@@ -30,6 +30,7 @@ export const Footer = () => {
           <ul className="text-base">
             <li>
               <Link
+                className="hover:text-emerald-700"
                 target="_blank"
                 href="https://www.linkedin.com/in/emileaublet/"
               >
@@ -37,12 +38,20 @@ export const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link target="_blank" href="mailto:emileaublet@gmail.com">
+              <Link
+                className="hover:text-emerald-700"
+                target="_blank"
+                href="mailto:emileaublet@gmail.com"
+              >
                 Email
               </Link>
             </li>
             <li>
-              <Link target="_blank" href="/EmileAublet_2024_en.pdf">
+              <Link
+                className="hover:text-emerald-700"
+                target="_blank"
+                href="/EmileAublet_2024_en.pdf"
+              >
                 Resume (PDF)
               </Link>
             </li>

@@ -7,10 +7,17 @@ import { Nav } from "./components/nav";
 import { Footer } from "./components/footer";
 import { title } from "./const";
 
-import localFont from "next/font/local";
+import { Inter, Space_Grotesk } from "next/font/google";
 
-const space_grotesk = localFont({
-  src: "./SpaceGrotesk-VariableFont_wght.ttf",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const space_grotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -49,8 +56,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx("", space_grotesk.className)}>
-      <body className="antialiased max-w-6xl mx-auto px-4 lg:px-8 text-zinc-950 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-50">
+    <html
+      lang="en"
+      className={cx("antialiased", inter.variable, space_grotesk.variable)}
+    >
+      <body className="antialiased max-w-6xl mx-auto px-4 lg:px-8 text-zinc-950 bg-zinc-50/10 dark:bg-zinc-950 dark:text-zinc-50 font-sans">
         <main className="flex-auto min-w-0 flex flex-col pb-10">
           <Nav />
           {children}

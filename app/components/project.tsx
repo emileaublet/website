@@ -1,7 +1,8 @@
 import { Metadata } from "app/utils";
-import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
+import Balancer from "react-wrap-balancer";
 
 type ProjectProps = {
   metadata: Metadata;
@@ -11,7 +12,7 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
   return (
     <Link href={`/${slug}`} className="group">
       <article
-        className="relative aspect-[7/8] rounded-lg overflow-hidden border border-zinc-800/10"
+        className="relative aspect-[5/6] lg:aspect-[5/4] rounded-lg overflow-hidden border border-zinc-800/10"
         style={{
           color: metadata.color || "black",
         }}
@@ -20,11 +21,11 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
           src={metadata.image}
           alt={metadata.title}
           fill
-          className="object-cover group-hover:scale-[102%] transition-transform duration-700"
+          className="object-cover object-top group-hover:scale-[102%] transition-transform origin-top duration-700"
         />
 
-        <div className="h-2/3 w-full relative text-center flex-col justify-center flex items-center">
-          <div
+        <div className="w-full flex-col justify-end h-full  absolute bottom-0 flex items-start p-6 md:p-8">
+          {/*    <div
             className="size-10 mb-4 rounded-full flex justify-center items-center overflow-hidden"
             style={{ backgroundColor: metadata.color || "black" }}
           >
@@ -39,18 +40,21 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
                 )}
               />
             )}
-          </div>
-          <div className="font-bold text-xl lg:text-2xl xl:text-4xl leading-tight max-w-[90%]">
-            {metadata.tagline}
-          </div>
-          <div
-            className="mt-4 px-4 py-2 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity duration-300 cursor-pointer"
-            style={{
-              backgroundColor: metadata.accentColor,
-            }}
+          </div> */}
+
+          <Balancer
+            as="h3"
+            className="text-xl lg:text-2xl xl:text-4xl leading-tight! font-bold mb-2 font-mono"
           >
-            <span>View Project</span>
-          </div>
+            {metadata.title}
+          </Balancer>
+          <Balancer className="font-normal xl:text-lg leading-tight! mt-1 md:mt-2 text-current/85">
+            {metadata.tagline}&nbsp;
+            <FaArrowRight
+              className="size-4 inline-table -mt-0.5 text-white rounded-full group-hover:tranemerald-x-1 transition-transform duration-300"
+              style={{ color: metadata.accentColor }}
+            />
+          </Balancer>
         </div>
       </article>
     </Link>

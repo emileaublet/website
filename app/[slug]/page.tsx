@@ -113,20 +113,6 @@ export default async function Project(props) {
       <article className="prose dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
-      {post.metadata.image && (
-        <Transition appear show>
-          <div
-            className="absolute w-full h-[900px] -z-10 top-0 left-0 max-w-full data-closed:opacity-0 mix-blend-color transition-opacity duration-[2s] ease-in-out opacity-100"
-            style={{
-              backgroundImage: `url(${post.metadata.image})`,
-              backgroundSize: "120%",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              filter: "blur(200px)",
-            }}
-          />
-        </Transition>
-      )}
     </section>
   );
 }

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-family-sans: var(--font-inter);
+  --font-family-mono: var(--font-space-grotesk);
+}
+
 :root {
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
@@ -26,6 +31,15 @@
 
 html {
   font-size: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-mono;
 }
 
 .subtle-border-b {
@@ -95,11 +109,11 @@ html {
 }
 
 .prose p + .columns {
-  @apply mt-24;
+  @apply mt-12 md:mt-24;
 }
 
 .columns + p {
-  @apply mt-24;
+  @apply mt-12 md:mt-24;
 }
 
 .prose h1 {

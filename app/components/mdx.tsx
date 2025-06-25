@@ -32,17 +32,24 @@ function CustomLink(props) {
 
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
+      <Link className="hover:text-emerald-700" href={href} {...props}>
         {props.children}
       </Link>
     );
   }
 
   if (href.startsWith("#")) {
-    return <a {...props} />;
+    return <a className="hover:text-emerald-700" {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a
+      className="hover:text-emerald-700"
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  );
 }
 
 function RoundedVideo(props) {
