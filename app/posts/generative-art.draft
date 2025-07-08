@@ -1,0 +1,66 @@
+---
+title: Building a Pen Plotter from Scratch
+summary: A personal project that combines code, creativity, and physical making — turning broken parts into a machine that draws with pens on paper.
+role: Designer, Maker, Tinkerer
+areas: Prototyping, Hardware Hacking, Creative Coding
+tagline: From broken 3D printer to expressive pen plotter — bridging art and engineering, one drawing at a time.
+color: "#EEECE7"
+accentColor: "#C9751E"
+image: /penplotter-tile.jpg
+---
+
+<Img
+  src={"/penplotter-main.webp"}
+  width={1280}
+  height={660}
+  alt="Custom Pen Plotter"
+/>
+
+## Challenge
+
+I’d always wanted to build a machine that draws. When my budget 3D printer broke, I saw it as an opportunity: instead of fixing it, I decided to take it apart and use the parts to build a pen plotter — a robot that moves a pen across paper to create illustrations.
+
+My first version worked, but had some issues: the drawing surface was too small, and the arm that held the pen wobbled at the edges. So I started over — this time designing a sturdier frame, rethinking how the pen would lift and drop, and learning just enough 3D modeling to design custom parts.
+
+<Columns>
+  <Img src={"/drawing_1.png"} width={540} height={660} alt="" />
+  <Img src={"/drawing_fusion.png"} width={540} height={660} alt="" />
+</Columns>
+<Img
+  src={"/penplotter-drawings.webp"}
+  width={1280}
+  height={660}
+  alt="Pen plotter output drawings"
+/>
+
+## Approach
+
+The plotter is made from aluminum rails, recycled motors, and 3D-printed brackets — most of which I designed myself. I learned how to model in Fusion 360 by trial and error, referencing online examples and tutorials.
+
+The machine is controlled by a tiny circuit board and a modified open-source firmware. I also use a small computer (a Raspberry Pi) to connect to it remotely and send it drawing instructions.
+
+To create the artwork, I write code using **p5.js**, a tool for generative drawing. Then I refine the images in Inkscape and convert them into a format the machine understands. I’ve also started building my own set of tools to speed up and automate this part of the process.
+
+<Columns>
+  <Img src={"/drawing_1.png"} width={540} height={660} alt="" />
+  <Img src={"/drawing_2.png"} width={540} height={660} alt="" />
+  <Img src={"/drawing_3.png"} width={540} height={660} alt="" />
+  <Img src={"/drawing_4.png"} width={540} height={660} alt="" />
+</Columns>
+
+## Reflections
+
+This is a project that brings together many of the things I love: creativity, technology, and making things by hand. As a product designer, I don’t often get to build physical things — this felt like reconnecting with the part of me that, as a kid, wanted to invent stuff and make art.
+
+<Img
+  src={"/penplotter-drawings.webp"}
+  width={1280}
+  height={660}
+  alt="Pen plotter output drawings"
+/>
+
+## What’s Next
+
+The machine works well, but there’s still a lot I want to explore. I’m thinking about upgrading the pen lifter for better control and less noise, experimenting with automatic pen switching, and improving the way I prepare and optimize drawings. I’m also curious about using real-world data to drive the art, or even training an AI agent to generate new visual styles.
+
+If you’re curious, you can check out [sketches.aublet.ca](https://sketches.aublet.ca) — a small online gallery and sandbox for the project.
