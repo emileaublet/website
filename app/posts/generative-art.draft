@@ -39,7 +39,7 @@ The plotter is made from aluminum rails, recycled motors, and 3D-printed bracket
 
 The machine is controlled by a tiny circuit board and a modified open-source firmware. I also use a small computer (a Raspberry Pi) to connect to it remotely and send it drawing instructions.
 
-To create the artwork, I write code using **p5.js**, a tool for generative drawing. Then I refine the images in Inkscape and convert them into a format the machine understands. I’ve also started building my own set of tools to speed up and automate this part of the process.
+To create the artwork, I write code using [p5.js](https://p5js.org/), a tool for generative drawing. Then I refine the images in Inkscape and convert them into a format the machine understands. I’ve also started building my own set of tools to speed up and automate this part of the process.
 
 <Columns>
   <Img src={"/drawing_1.png"} width={540} height={660} alt="" />

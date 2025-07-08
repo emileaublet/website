@@ -44,7 +44,7 @@ function CustomLink(props) {
 
   return (
     <a
-      className="hover:text-emerald-700"
+      className="hover:text-emerald-700 dark:hover:text-emerald-500 underline text-emerald-800 dark:text-emerald-300"
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -77,6 +77,7 @@ function RoundedImage(props) {
   return (
     <figure className="w-full">
       <Image
+      quality={80}
         alt={props.alt}
         className="rounded-lg w-full border border-neutral-200 dark:border-transparent"
         {...props}

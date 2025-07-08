@@ -65,7 +65,7 @@ h6 {
 }
 
 .prose a {
-  @apply transition-all decoration-zinc-400 dark:decoration-zinc-600 underline-offset-2 decoration-[0.1em];
+  @apply transition-all decoration-emerald-700/40 underline-offset-4 decoration-[0.1em];
 }
 
 .prose .anchor:after {
