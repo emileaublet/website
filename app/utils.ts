@@ -13,6 +13,9 @@ export type Metadata = {
   isDraft?: boolean;
   color?: string;
   accentColor?: string;
+  scrimColor?: string;
+  scrim?: "light" | "dark" | "none";
+  locked?: boolean;
   tagline?: string;
   type?: string;
 };

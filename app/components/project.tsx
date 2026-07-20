@@ -8,7 +8,28 @@ type ProjectProps = {
   metadata: Metadata;
   slug: string;
 };
+
+function getLuminance(hex?: string) {
+  if (!hex) return 1;
+  const clean = hex.replace("#", "");
+  const full =
+    clean.length === 3
+      ? clean
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : clean;
+  const r = parseInt(full.slice(0, 2), 16) / 255;
+  const g = parseInt(full.slice(2, 4), 16) / 255;
+  const b = parseInt(full.slice(4, 6), 16) / 255;
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
 export const Project = ({ metadata, slug }: ProjectProps) => {
+  const scrim =
+    metadata.scrim ||
+    (getLuminance(metadata.color) < 0.5 ? "light" : "dark");
+
   return (
     <Link href={`/${slug}`} className="group">
       <article
@@ -23,6 +44,19 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
           fill
           className="object-cover object-top group-hover:scale-[102%] transition-transform origin-top duration-700"
         />
+
+        {scrim !== "none" && (
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `linear-gradient(180deg, transparent 35%, color-mix(in srgb, ${
+                metadata.scrimColor ||
+                metadata.accentColor ||
+                (scrim === "light" ? "white" : "black")
+              } 35%, ${scrim === "light" ? "white" : "black"}) 100%)`,
+            }}
+          />
+        )}
 
         <div className="w-full flex-col justify-end h-full  absolute bottom-0 flex items-start p-6 md:p-8">
           {/*    <div

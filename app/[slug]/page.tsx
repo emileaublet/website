@@ -3,8 +3,13 @@ import { CustomMDX } from "app/components/mdx";
 import { getProjects } from "app/utils";
 import { baseUrl } from "app/sitemap";
 import { NameVal } from "app/components/nameval";
+import { PasswordGate } from "app/components/password-gate";
+import { isProjectUnlocked } from "app/actions/unlock-project";
 import Image from "next/image";
-import { Transition } from "@headlessui/react";
+
+function isLocked(metadata: { locked?: boolean | string }) {
+  return metadata.locked === true || metadata.locked === "true";
+}
 
 export async function generateStaticParams() {
   let posts = getProjects();
@@ -19,6 +24,14 @@ export async function generateMetadata(props) {
   let post = getProjects().find((post) => post.slug === params.slug);
   if (!post) {
     return;
+  }
+
+  if (isLocked(post.metadata) && !(await isProjectUnlocked(post.slug))) {
+    return {
+      title: "Password Protected",
+      description: "This case study is password-protected.",
+      robots: { index: false, follow: false },
+    };
   }
 
   let { title, summary: description } = post.metadata;
@@ -53,6 +66,17 @@ export default async function Project(props) {
 
   if (!post) {
     notFound();
+  }
+
+  const locked = isLocked(post.metadata);
+  const unlocked = locked ? await isProjectUnlocked(post.slug) : true;
+
+  if (locked && !unlocked) {
+    return (
+      <section>
+        <PasswordGate slug={post.slug} />
+      </section>
+    );
   }
 
   return (

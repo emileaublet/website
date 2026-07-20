@@ -1,12 +1,27 @@
 import Balancer from "react-wrap-balancer";
 import { Columns } from "./components/columns";
 import { Project } from "./components/project";
+import { PasswordGate } from "./components/password-gate";
+import { isProjectUnlocked } from "./actions/unlock-project";
 import { getProjects } from "./utils";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
-export default function Page() {
-  const projects = getProjects();
+function isLocked(metadata: { locked?: boolean | string }) {
+  return metadata.locked === true || metadata.locked === "true";
+}
+
+export default async function Page() {
+  const projects = [...getProjects()].sort(
+    (a, b) => Number(isLocked(b.metadata)) - Number(isLocked(a.metadata))
+  );
+  const unlockedBySlug = Object.fromEntries(
+    await Promise.all(
+      projects
+        .filter((p) => isLocked(p.metadata))
+        .map(async (p) => [p.slug, await isProjectUnlocked(p.slug)] as const)
+    )
+  );
   return (
     <>
       <section className="mt-8 lg:mt-16">
@@ -29,13 +44,21 @@ export default function Page() {
       <section className="border-t border-current/5 mt-12 lg:mt-16">
         <h2>Projects</h2>
         <Columns>
-          {projects.map((project) => (
-            <Project
-              key={project.slug}
-              metadata={project.metadata}
-              slug={project.slug}
-            />
-          ))}
+          {projects.map((project) =>
+            isLocked(project.metadata) && !unlockedBySlug[project.slug] ? (
+              <PasswordGate
+                key={project.slug}
+                slug={project.slug}
+                variant="card"
+              />
+            ) : (
+              <Project
+                key={project.slug}
+                metadata={project.metadata}
+                slug={project.slug}
+              />
+            )
+          )}
         </Columns>
       </section>
     </>

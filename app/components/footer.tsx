@@ -7,6 +7,7 @@ export const Footer = () => {
         <div>
           <h2 className="text-xl mb-4 mt-8 font-medium">Experiences</h2>
           <ul className="text-base">
+            <li>Croesus</li>
             <li>FLO EV Charging</li>
             <li>Shopify</li>
             <li>National Bank of Canada</li>
@@ -50,7 +51,7 @@ export const Footer = () => {
               <Link
                 className="hover:text-emerald-700"
                 target="_blank"
-                href="/EmileAublet_2024_en.pdf"
+                href="/EmileAublet_2026_en.pdf"
               >
                 Resume (PDF)
               </Link>

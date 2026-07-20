@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { baseUrl } from "./sitemap";
 import { Nav } from "./components/nav";
 import { Footer } from "./components/footer";
+import { PageTransition } from "./components/page-transition";
 import { title } from "./const";
 
 import { Inter, Space_Grotesk } from "next/font/google";
@@ -63,7 +64,7 @@ export default function RootLayout({
       <body className="antialiased max-w-6xl mx-auto px-4 lg:px-8 text-zinc-950 bg-zinc-50/10 dark:bg-zinc-950 dark:text-zinc-50 font-sans">
         <main className="flex-auto min-w-0 flex flex-col pb-10">
           <Nav />
-          {children}
+          <PageTransition>{children}</PageTransition>
           <Footer />
           <Analytics />
           <SpeedInsights />
