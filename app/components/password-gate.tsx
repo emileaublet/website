@@ -12,7 +12,10 @@ export function PasswordGate({
   variant?: "page" | "card";
 }) {
   const action = unlockProject.bind(null, slug);
-  const [state, formAction, pending] = useActionState(action, undefined);
+  const [state, formAction, pending] = useActionState<
+    { error?: string } | undefined,
+    FormData
+  >(action, undefined);
 
   if (variant === "card") {
     return (

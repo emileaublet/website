@@ -6,10 +6,10 @@ function isLocked(metadata: { locked?: boolean | string }) {
 }
 
 function assetPaths(content: string) {
-  const matches = content.matchAll(
-    /\/[\w-]+\.(?:png|jpe?g|webp|gif|mp4|mov)/g
+  const matches = Array.from(
+    content.matchAll(/\/[\w-]+\.(?:png|jpe?g|webp|gif|mp4|mov)/g)
   );
-  return [...new Set([...matches].map((m) => m[0]))];
+  return Array.from(new Set(matches.map((m) => m[0])));
 }
 
 export default function robots() {
@@ -25,7 +25,7 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
-        disallow: [...new Set(disallow)],
+        disallow: Array.from(new Set(disallow)),
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
