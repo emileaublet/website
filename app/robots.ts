@@ -25,7 +25,8 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
-        disallow: Array.from(new Set(disallow)),
+        // /etsy/callback is an OAuth redirect target, not content.
+        disallow: Array.from(new Set([...disallow, "/etsy/"])),
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
