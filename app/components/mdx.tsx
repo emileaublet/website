@@ -9,6 +9,7 @@ import { WireframeScene } from "./wireframe-scene";
 import { Carousel } from "./carousel";
 import { GalleryStrip } from "./gallery-strip";
 import { SizeGrid } from "./size-grid";
+import { ResponsiveVideo } from "./responsive-video";
 import { FaCamera, FaVideo } from "react-icons/fa";
 
 function Table({ data }) {
@@ -61,10 +62,9 @@ function CustomLink(props) {
 function RoundedVideo(props) {
   return (
     <figure className="w-full">
-      <video
+      <ResponsiveVideo
         className="rounded-lg border border-neutral-200 w-full dark:border-transparent shadow-xl shadow-black/20 dark:shadow-black/50"
         controls
-        autoPlay
         muted
         loop
         src={props.src}
