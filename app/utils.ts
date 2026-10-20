@@ -17,6 +17,7 @@ export type Metadata = {
   scrim?: "light" | "dark" | "none";
   locked?: boolean;
   tagline?: string;
+  year?: string;
   type?: string;
 };
 

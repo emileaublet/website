@@ -55,7 +55,7 @@ pnpm start
 
 To add or update a case study, edit an existing `app/posts/*.mdx` file or add a new one with the same frontmatter shape. Keep referenced media in `public/` and use root-relative paths such as `/flo-ds-main.webp`. `app/components/mdx.tsx` defines the custom components available inside MDX; prefer those components over duplicating page markup.
 
-Important frontmatter fields include `title`, `publishedAt`, `summary`, `image`, `employer`, `areas`, `role`, `color`, `accentColor`, `tagline`, and optional `locked` / `isDraft` flags. Keep slugs filename-based and URL-safe.
+Important frontmatter fields include `title`, `publishedAt`, `year`, `summary`, `image`, `employer`, `areas`, `role`, `color`, `accentColor`, `tagline`, and optional `locked` / `isDraft` flags. Keep slugs filename-based and URL-safe.
 
 If a project is locked, the runtime reads `UNLOCK_PASSWORD`. Without that environment variable, locked projects are treated as unlocked for local development. Never commit passwords or environment files.
 

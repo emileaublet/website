@@ -76,6 +76,11 @@ export const Project = ({ metadata, slug }: ProjectProps) => {
             )}
           </div> */}
 
+          {metadata.year && (
+            <div className="text-sm font-mono text-current/75 mb-2">
+              {metadata.year}
+            </div>
+          )}
           <Balancer
             as="h3"
             className="text-xl lg:text-2xl xl:text-4xl leading-tight! font-bold mb-2 font-mono"

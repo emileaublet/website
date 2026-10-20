@@ -115,11 +115,15 @@ export default async function Project(props) {
             source={`<p className="lead">${post.metadata.summary}</p>`}
           />
           {[
+            post.metadata.year,
             post.metadata.employer,
             post.metadata.role,
             post.metadata.areas,
           ].some((v) => v) && (
             <div className="grid gap-1 md:gap-4 md:grid-cols-3 lg:grid-cols-4 mt-6">
+              {post.metadata.year && (
+                <NameVal name="Year" val={post.metadata.year} />
+              )}
               {post.metadata.employer && (
                 <NameVal name="Employer" val={post.metadata.employer} />
               )}
