@@ -11,7 +11,7 @@ function expectedToken(password: string) {
   return createHash("sha256").update(`protected:${password}`).digest("hex");
 }
 
-export async function isProjectUnlocked(_slug?: string) {
+export async function isProjectUnlocked() {
   const password = process.env[ENV_VAR];
   if (!password) return true;
 

@@ -46,8 +46,9 @@ export default async function Image() {
       >
         {
           <img
-            //@ts-expect-error
+            // @ts-expect-error ImageResponse accepts this binary source at runtime.
             src={emileSrc}
+            alt=""
             style={{
               borderRadius: "100%",
               width: 196,

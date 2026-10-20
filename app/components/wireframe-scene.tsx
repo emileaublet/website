@@ -33,7 +33,7 @@ function logCamera(camera: THREE.Camera, target?: THREE.Vector3) {
 function KeyboardCamera({
   controlsRef,
 }: {
-  controlsRef: React.RefObject<any>;
+  controlsRef: React.RefObject<React.ElementRef<typeof OrbitControls> | null>;
 }) {
   const { camera } = useThree();
   const pressed = useRef<Set<string>>(new Set());
@@ -145,9 +145,12 @@ function SpinRig({
   const lastX = useRef(0);
   const { gl } = useThree();
 
+  // The renderer canvas is an external DOM node; cursor mutation is intentional.
+  // eslint-disable-next-line react-hooks/immutability -- synchronize the canvas cursor
   useEffect(() => {
     if (!autoSpin) return;
     const el = gl.domElement;
+    // eslint-disable-next-line react-hooks/immutability -- synchronize the canvas cursor
     el.style.cursor = "grab";
 
     const down = (e: PointerEvent) => {
@@ -194,7 +197,7 @@ export function WireframeScene({
   aspect?: string;
   debug?: boolean;
 }) {
-  const controlsRef = useRef<any>(null);
+  const controlsRef = useRef<React.ElementRef<typeof OrbitControls>>(null);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {

@@ -7,13 +7,13 @@ function isLocked(metadata: { locked?: boolean | string }) {
 }
 
 export default async function sitemap() {
-  let projects = getProjects()
+  const projects = getProjects()
     .filter((post) => !isLocked(post.metadata))
     .map((post) => ({
       url: `${baseUrl}/${post.slug}`,
     }));
 
-  let routes = [""].map((route) => ({
+  const routes = [""].map((route) => ({
     url: `${baseUrl}${route}`,
   }));
 

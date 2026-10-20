@@ -5,14 +5,13 @@ import { baseUrl } from "app/sitemap";
 import { NameVal } from "app/components/nameval";
 import { PasswordGate } from "app/components/password-gate";
 import { isProjectUnlocked } from "app/actions/unlock-project";
-import Image from "next/image";
 
 function isLocked(metadata: { locked?: boolean | string }) {
   return metadata.locked === true || metadata.locked === "true";
 }
 
 export async function generateStaticParams() {
-  let posts = getProjects();
+  const posts = getProjects();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -21,12 +20,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props) {
   const params = await props.params;
-  let post = getProjects().find((post) => post.slug === params.slug);
+  const post = getProjects().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
 
-  if (isLocked(post.metadata) && !(await isProjectUnlocked(post.slug))) {
+  if (isLocked(post.metadata) && !(await isProjectUnlocked())) {
     return {
       title: "Password Protected",
       description: "This case study is password-protected.",
@@ -34,7 +33,7 @@ export async function generateMetadata(props) {
     };
   }
 
-  let { title, summary: description } = post.metadata;
+  const { title, summary: description } = post.metadata;
 
   return {
     title,
@@ -62,14 +61,14 @@ export async function generateMetadata(props) {
 
 export default async function Project(props) {
   const params = await props.params;
-  let post = getProjects().find((post) => post.slug === params.slug);
+  const post = getProjects().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
   }
 
   const locked = isLocked(post.metadata);
-  const unlocked = locked ? await isProjectUnlocked(post.slug) : true;
+  const unlocked = locked ? await isProjectUnlocked() : true;
 
   if (locked && !unlocked) {
     return (

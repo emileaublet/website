@@ -34,7 +34,12 @@ export function CallbackResult() {
 
   // Read on the client so the value reflects exactly what Etsy redirected to,
   // including the host, which the auth script validates.
-  useEffect(() => setFullUrl(window.location.href), []);
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setFullUrl(window.location.href);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   const error = params.get("error");
   const code = params.get("code");

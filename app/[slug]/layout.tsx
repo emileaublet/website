@@ -26,9 +26,9 @@ export default async function MdxLayout(props: {
   }
 
   const previousLocked =
-    isLocked(previous.metadata) && !(await isProjectUnlocked(previous.slug));
+    isLocked(previous.metadata) && !(await isProjectUnlocked());
   const nextLocked =
-    isLocked(next.metadata) && !(await isProjectUnlocked(next.slug));
+    isLocked(next.metadata) && !(await isProjectUnlocked());
 
   return (
     <>
