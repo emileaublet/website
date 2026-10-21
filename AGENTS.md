@@ -30,6 +30,11 @@ TypeScript `5.9.3` and ESLint `9.39.5` are intentional compatibility pins. Newer
 - `public/` — images, videos, 3D models, fonts, and PDF resumes.
 - `next.config.mjs` — Next.js configuration.
 
+`next.config.mjs` sets Next.js `deploymentId` from `NEXT_DEPLOYMENT_ID` or
+`VERCEL_GIT_COMMIT_SHA`. Keep this in place: it lets Next.js detect version
+skew after a Vercel deployment and hard-refresh stale tabs before they submit
+outdated Server Actions.
+
 ## Local setup
 
 From the repository root:
