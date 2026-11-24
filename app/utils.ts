@@ -21,6 +21,10 @@ export type Metadata = {
   type?: string;
 };
 
+export function isProjectLocked(metadata: { locked?: boolean | string }) {
+  return metadata.locked === true || metadata.locked === "true";
+}
+
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);

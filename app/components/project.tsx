@@ -1,11 +1,23 @@
-import { Metadata } from "app/utils";
+import type { Metadata } from "app/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
 
+export type ProjectCardMetadata = Pick<
+  Metadata,
+  | "title"
+  | "image"
+  | "color"
+  | "accentColor"
+  | "scrim"
+  | "scrimColor"
+  | "year"
+  | "tagline"
+>;
+
 type ProjectProps = {
-  metadata: Metadata;
+  metadata: ProjectCardMetadata;
   slug: string;
 };
 
